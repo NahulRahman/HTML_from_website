@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Reflection Effect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #383838;
+        }
+
+        section {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .imgCard {
+            width: 350px;
+            height: 280px;
+            position: relative;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url('https://cdn.pixabay.com/photo/2022/05/12/19/11/flowers-7192179_960_720.jpg');
+        }
+
+        .imgCard::before {
+            content: '';
+            top: 100%;
+            left: 0;
+            right: 0;
+            height: 73%;
+            opacity: 0;
+            position: absolute;
+            background-position: bottom;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: inherit;
+            transform: scaleY(-1);
+            z-index: 1;
+            transition: 0.2s all ease-in-out;
+        }
+
+        .imgCard::after {
+            content: '';
+            top: 100%;
+            left: 0;
+            right: 0;
+            height: inherit;
+            position: absolute;
+            background-image: linear-gradient(to bottom, #38383800 -26.48%, #383838 73.52%);
+            z-index: 2;
+        }
+
+        .imgCard:hover::before {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="imgCard"></div>
+    </section>
+</body>
+</html>
