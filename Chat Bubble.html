@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Bubble</title>
+    <style>
+        body {
+            background-color: #383838;
+        }
+
+        section {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div.chatBubble {
+            background-color: #fff;
+            width: 250px;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0 0 8px 2px #f3b408;
+        }
+
+        div.chatBubble p {
+            margin: 0;
+            font-size: 18px;
+            text-align: justify;
+        }
+
+        div.chatBubble::before {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            right: calc(50% - 20px);
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #fff;
+            filter: drop-shadow(0.5px 4px 2px #f3b40885);
+        }
+        
+    </style>
+</head>
+<body>
+    <section>
+        <div class="chatBubble">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, itaque distinctio quam iure architecto sequi provident necessitatibus praesentium blanditiis placeat ad, nihil dolores illo ea! Molestias alias a vero nesciunt.</p>
+        </div>
+    </section>
+</body>
+</html>
