@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circular Progress Bar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #383838;
+        }
+
+        section {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        svg {
+            width: 500px;
+            height: 500px;
+        }
+
+        svg circle {
+            fill: none;
+            stroke-width: 5px;
+            stroke-linecap: round;
+        }
+
+        svg circle.bg {
+            stroke: #4e4e4e;
+        }
+
+        svg circle.meter {
+            stroke: #ff7a59;
+            stroke-dashoffset: 300px;
+            stroke-dasharray: 300px;
+            animation: prog 10s linear forwards,
+                        glow 1s 9s ease-in-out forwards;
+        }
+
+        @keyframes prog {
+            0% { stroke-dashoffset: 300px; }
+            20% { stroke-dashoffset: 200px; }
+            30% { stroke-dashoffset: 190px; }
+            80% { stroke-dashoffset: 100px; }
+            100% { stroke-dashoffset: 0; }
+        }
+
+        @keyframes glow {
+            100% {
+                filter: drop-shadow(0 0 3px #ff7a59);
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <section>
+        <svg viewBox="0 0 100 100">
+            <circle class="bg" cx="50" cy="50" r="40" />
+            <circle class="meter" cx="50" cy="50" r="40" />
+        </svg>
+    </section>
+</body>
+</html>
